@@ -4,6 +4,8 @@ import { ArrowRight, Play } from 'lucide-react';
 import './Hero.css';
 
 const Hero = () => {
+    const [showVideo, setShowVideo] = React.useState(false);
+
     return (
         <section className="hero">
             <div className="hero-background"></div>
@@ -33,7 +35,7 @@ const Hero = () => {
                     <Button
                         variant="outline-white"
                         icon={Play}
-                        onClick={() => alert("Trailer coming soon!")}
+                        onClick={() => setShowVideo(true)}
                     >
                         Watch Trailer
                     </Button>
@@ -56,6 +58,23 @@ const Hero = () => {
                     <span className="stat-label">Reliability Record</span>
                 </div>
             </div>
+
+            {showVideo && (
+                <div className="video-modal-overlay" onClick={() => setShowVideo(false)}>
+                    <div className="video-modal-content" onClick={e => e.stopPropagation()}>
+                        <button className="video-close-btn" onClick={() => setShowVideo(false)}>×</button>
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

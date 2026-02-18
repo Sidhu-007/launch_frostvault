@@ -39,6 +39,7 @@ const Header = () => {
                 </div>
 
                 <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
+                    <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
                     <a href="#technology" onClick={() => setMobileMenuOpen(false)}>Technology</a>
                     <a href="#products" onClick={() => setMobileMenuOpen(false)}>Models</a>
                     <a href="#applications" onClick={() => setMobileMenuOpen(false)}>Applications</a>

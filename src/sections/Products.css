@@ -107,8 +107,16 @@
 @media (max-width: 900px) {
     .products-grid {
         grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
+        max-width: 100%;
+        /* Allow full width */
+        padding: 0 1.5rem;
+        /* Safe area padding */
+        gap: 2rem;
+    }
+
+    .product-card {
+        padding: 2rem 1.5rem;
+        /* Slightly reduced padding */
     }
 
     .product-card.highlighted {

@@ -1,0 +1,89 @@
+:root {
+    --frame-width: 100px;
+    /* Width of one single penguin frame */
+    --frame-count: 8;
+    /* Total number of frames in your image */
+}
+
+.penguin-world {
+    position: fixed;
+    bottom: 20%;
+    /* Adjusted height */
+    left: -150px;
+    /* Moves the penguin from left to right across the screen */
+    animation: travel 25s linear infinite;
+    z-index: 9999;
+    /* High z-index to stay on top */
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.penguin-float {
+    /* This creates the anti-gravity 'bobbing' effect */
+    animation: bob 3s ease-in-out infinite;
+}
+
+.penguin-walk {
+    width: var(--frame-width);
+    height: 100px;
+    /* Use local path, assuming user puts it in assets or public */
+    background-image: url('../assets/penguin-sprite.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    /* Important for sprite scaling */
+
+    /* Fallback if image missing - Temporary Placeholder */
+    background-color: rgba(0, 212, 255, 0.2);
+    border: 2px solid #00d4ff;
+    border-radius: 50%;
+
+    /* Steps() is the secret: it jumps through frames instead of sliding */
+    animation: play-sprite 0.8s steps(8) infinite;
+    /* Hardcoded 8 to match var */
+    filter: drop-shadow(0 0 15px #00d4ff);
+    /* Adds that neon glow */
+
+    /* Display text content if we added any, or just be a glowing orb */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00d4ff;
+    font-family: inherit;
+    font-size: 10px;
+    content: "PENGUIN";
+}
+
+/* --- ANIMATIONS --- */
+
+@keyframes play-sprite {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: calc(var(--frame-width) * var(--frame-count) * -1);
+    }
+}
+
+@keyframes bob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes travel {
+    from {
+        left: -150px;
+    }
+
+    to {
+        left: 110vw;
+    }
+}
