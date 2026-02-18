@@ -6,7 +6,7 @@ import './Products.css';
 const models = [
     {
         name: 'FrostVault Lite',
-        price: '$2,500',
+        price: '$2,499',
         type: 'Entry-Level',
         features: [
             'Temp Range: -20°C to 10°C',
@@ -19,7 +19,7 @@ const models = [
     },
     {
         name: 'FrostVault Pro',
-        price: '$3,500',
+        price: '$3,499',
         type: 'Standard Mission',
         features: [
             'Temp Range: -40°C to 10°C',
@@ -33,7 +33,7 @@ const models = [
     },
     {
         name: 'FrostVault Max',
-        price: '$5,000',
+        price: '$4,999',
         type: 'Extreme Survival',
         features: [
             'Temp Range: -50°C to 10°C',
